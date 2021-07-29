@@ -109,7 +109,6 @@ fi
 
 topic "Installing Google Chrome from the $channel channel."
 
-PACKAGES="$PACKAGES https://dl.google.com/linux/direct/google-chrome-${channel}_current_amd64.deb"
 
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
@@ -131,9 +130,11 @@ for PACKAGE in $PACKAGES; do
     curl -s -L -z $PACKAGE_FILE -o $PACKAGE_FILE $PACKAGE 2>&1 | indent
   else
     topic "Fetching .debs for $PACKAGE"
-    apt-get $APT_OPTIONS -y --force-yes -d install --reinstall $PACKAGE | indent
+    apt-get $APT_OPTIONS -y --allow -d install --reinstall $PACKAGE | indent
   fi
 done
+
+echo `ls`
 
 mkdir -p $BUILD_DIR/.apt
 
