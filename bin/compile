@@ -134,7 +134,7 @@ for PACKAGE in $PACKAGES; do
   fi
 done
 
-echo `ls`
+topic `ls`
 
 mkdir -p $BUILD_DIR/.apt
 
