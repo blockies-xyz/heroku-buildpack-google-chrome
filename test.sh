@@ -1,4 +1,4 @@
-uname -a
+uname --all
 curl -s -o chromedriver.zip https://chromedriver.storage.googleapis.com/92.0.4515.107/chromedriver_linux64.zip
 unzip -o chromedriver.zip -d ./
 rm -rf chromedriver.zip
